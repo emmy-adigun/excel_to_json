@@ -37,8 +37,10 @@ if uploaded_file is not None:
 
 
      # Can be used wherever a "file-like" object is accepted:
-     excel_data_df = pd.read_excel(uploaded_file, engine='openpyxl')
-     json_str = excel_data_df.to_json('Products21.json', orient='records')
-     
+    #  excel_data_df = pd.read_excel(uploaded_file, engine='openpyxl')
+    #  json_str = excel_data_df.to_json('Products21.json', orient='records')
+     wb_obj = openpyxl.load_workbook(uploaded_file, engine='openpyxl')
+     sheet_obj = wb_obj.active
+     json_str = sheet_obj.to_json('Products21.json', orient='records')
      st.markdown("### **Check your folder after upload**")
      # st.write(json_str)
