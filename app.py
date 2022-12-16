@@ -32,36 +32,13 @@ body{
 """, unsafe_allow_html=True)
 
 
-uploaded_file = st.sidebar.file_uploader("Choose a file" ,type=['xlsx'])
-if uploaded_file:
-    file_details = {
-        "Filename":uploaded_file.name,
-        "FileType":uploaded_file.type,
-        "FileSize":uploaded_file.size}
+uploaded_file = st.file_uploader("Choose a file")
+if uploaded_file is not None:
 
-    wb = openpyxl.load_workbook(uploaded_file)
 
-    st.sidebar.subheader("File details:")
-    st.sidebar.json(file_details,expanded=False)
-    st.sidebar.markdown("----")
-
-    ## Select sheet
-    sheet_selector = st.sidebar.selectbox("Select sheet:",wb.sheetnames)     
-    df = pd.read_excel(uploaded_file,sheet_selector)
-    st.markdown(f"### Currently Selected: `{sheet_selector}`")
-    st.write(df)
-
-    ## Do something after a button
-    doLogic_btn = st.button("➕")
-    if doLogic_btn:
-        df2 = df.sum().transpose()
-        st.write(df2)
-
-        # Do something more after the previous button
-        # >> But this will fail because the button will go back to _False_ 
-        # >> so nothing will be shown afterwards
-        another_btn = st.checkbox("Another +")
-        if another_btn:
-            df3 = df2.sum()
-            st.write(df3)
+     # Can be used wherever a "file-like" object is accepted:
+     excel_data_df = pd.read_excel(uploaded_file, skiprows=list(range(2)))
+     json_str = excel_data_df.to_json('Products21.json', orient='records')
+     
+     st.markdown("### **Check your folder after upload**")
      # st.write(json_str)
