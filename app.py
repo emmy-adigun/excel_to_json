@@ -5,7 +5,7 @@ import xlrd
 import openpyxl
 # from wordcloud import WordCloud
 
-st.set_page_config(layout="wide")
+st.set_page_config(layout="centered")
 
 st.title("Upload Excel File")
 # st.write("Upload Excel File")
