@@ -32,7 +32,7 @@ body{
 """, unsafe_allow_html=True)
 
 
-uploaded_file = st.file_uploader("Choose a file" ,type=['xlsx'])
+uploaded_file = st.sidebar.file_uploader("Choose a file" ,type=['xlsx'])
 if uploaded_file:
     file_details = {
         "Filename":uploaded_file.name,
