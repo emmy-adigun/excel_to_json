@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-import xlrd as xl
+import openpyxl as op
 import numpy as np
 # from wordcloud import WordCloud
 
@@ -37,7 +37,7 @@ if uploaded_file is not None:
 
 
      # Can be used wherever a "file-like" object is accepted:
-     excel_data_df = xl.open_workbook(uploaded_file)
+     excel_data_df = op.open_workbook(uploaded_file)
      json_str = excel_data_df.to_json('Products21.json', orient='records')
      
      st.markdown("### **Check your folder after upload**")
