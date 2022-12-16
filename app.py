@@ -37,7 +37,7 @@ if uploaded_file is not None:
 
      # Can be used wherever a "file-like" object is accepted:
      excel_data_df = pd.read_excel(uploaded_file)
-     json_str = excel_data_df.to_json('Products21.json', orient='records')
+     json_str = excel_data_df.to_json('/Users/Documents/Products21.json', orient='records')
      
      st.markdown("### **Check your folder after upload**")
      # st.write(json_str)
