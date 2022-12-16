@@ -41,6 +41,27 @@ if uploaded_file:
 
     wb = openpyxl.load_workbook(uploaded_file)
 
-    json_str = wb.to_json('Products21.json', orient='records')
-    st.markdown("### **Check your folder after upload**")
+    st.sidebar.subheader("File details:")
+    st.sidebar.json(file_details,expanded=False)
+    st.sidebar.markdown("----")
+
+    ## Select sheet
+    sheet_selector = st.sidebar.selectbox("Select sheet:",wb.sheetnames)     
+    df = pd.read_excel(uploaded_file,sheet_selector)
+    st.markdown(f"### Currently Selected: `{sheet_selector}`")
+    st.write(df)
+
+    ## Do something after a button
+    doLogic_btn = st.button("➕")
+    if doLogic_btn:
+        df2 = df.sum().transpose()
+        st.write(df2)
+
+        # Do something more after the previous button
+        # >> But this will fail because the button will go back to _False_ 
+        # >> so nothing will be shown afterwards
+        another_btn = st.checkbox("Another +")
+        if another_btn:
+            df3 = df2.sum()
+            st.write(df3)
      # st.write(json_str)
