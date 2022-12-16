@@ -7,8 +7,8 @@ import openpyxl
 
 st.set_page_config(layout="centered")
 
-st.title("Upload Excel File")
-# st.write("Upload Excel File")
+#st.title("Upload Excel File")
+st.write("Upload Excel File")
 
 st.markdown("""
 <style>
