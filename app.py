@@ -32,15 +32,15 @@ body{
 """, unsafe_allow_html=True)
 
 
-uploaded_file = st.file_uploader("Choose a file")
-if uploaded_file is not None:
+uploaded_file = st.file_uploader("Choose a file" ,type=['xlsx'])
+if uploaded_file:
+    file_details = {
+        "Filename":uploaded_file.name,
+        "FileType":uploaded_file.type,
+        "FileSize":uploaded_file.size}
 
+    wb = openpyxl.load_workbook(uploaded_file)
 
-     # Can be used wherever a "file-like" object is accepted:
-    #  excel_data_df = pd.read_excel(uploaded_file, engine='openpyxl')
-    #  json_str = excel_data_df.to_json('Products21.json', orient='records')
-     wb_obj = openpyxl.load_workbook(uploaded_file)
-     sheet_obj = wb_obj.active
-     json_str = sheet_obj.to_json('Products21.json', orient='records')
-     st.markdown("### **Check your folder after upload**")
+    json_str = wb.to_json('Products21.json', orient='records')
+    st.markdown("### **Check your folder after upload**")
      # st.write(json_str)
