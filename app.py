@@ -7,15 +7,12 @@ import openpyxl
 
 st.set_page_config(layout="wide")
 
-# st.title("Linkedin Connection Analysis")
-st.write("Upload Excel File")
+st.title("Upload Excel File")
+# st.write("Upload Excel File")
 
 st.markdown("""
 <style>
-body{
-       background: rgb(0, 23, 43);
-       color: rgb(220, 220, 220);
-}
+
 .column-style {
     font-size:16px !important;
     text-align:left;
@@ -26,9 +23,7 @@ body{
     padding: 16px;
     opacity: 1;
 }
-.css-1njf6aq {
-    background-color: blue;
-    }
+
 </style>
 """, unsafe_allow_html=True)
 
@@ -39,7 +34,7 @@ if uploaded_file is not None:
 
      # Can be used wherever a "file-like" object is accepted:
      excel_data_df = pd.read_excel(uploaded_file, skiprows=list(range(2)))
-     json_str = excel_data_df.to_json('Products21.json', orient='records')
+     json_str = excel_data_df.to_json('data.json', orient='records')
      
-     st.markdown("### **Check your folder after upload**")
+     st.markdown("#### **Check your download folder for the JSON file**")
      # st.write(json_str)
