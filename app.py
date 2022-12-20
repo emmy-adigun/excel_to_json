@@ -9,7 +9,7 @@ st.set_page_config(layout="centered")
 
 #st.title("Upload Excel File")
 st.write("Upload Excel File")
-st.write("Download a sample of the excel template to be uploaded [link](https://iswtest.frb.io/skillbase/dynamic_certificate/uploads/training2.xls)")
+st.write("Download a sample of the excel template to be uploaded. [link](https://iswtest.frb.io/skillbase/dynamic_certificate/uploads/training2.xls)")
 st.markdown("""
 <style>
 
