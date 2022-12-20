@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-import xlrd
+
 import openpyxl
 # from wordcloud import WordCloud
 
@@ -34,7 +34,7 @@ if uploaded_file is not None:
 
      # Can be used wherever a "file-like" object is accepted:
      excel_data_df = pd.read_excel(uploaded_file, skiprows=list(range(2)))
-     json_str = excel_data_df.to_json('json/skillz.json', orient='records')
+     json_str = excel_data_df.to_json('skillz.json', orient='records')
      
      st.markdown("#### **Check your download folder for the JSON file**")
      # st.write(json_str)
