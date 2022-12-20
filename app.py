@@ -2,7 +2,6 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 
-import openpyxl
 # from wordcloud import WordCloud
 
 st.set_page_config(layout="centered")
@@ -35,6 +34,6 @@ if uploaded_file is not None:
      # Can be used wherever a "file-like" object is accepted:
      excel_data_df = pd.read_excel(uploaded_file, skiprows=list(range(2)))
      json_str = excel_data_df.to_json('df.json', orient='records')
-     json_str
+     
      st.markdown("#### **Check your download folder for the JSON file**")
-     st.write(json_str)
+     # st.write(json_str)
